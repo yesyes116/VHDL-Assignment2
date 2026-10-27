@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project source="5.0.0" version="1.0">
+  This file is intended to be loaded by Logisim-evolution v5.0.0(https://github.com/logisim-evolution/).
+
+  <lib desc="#Wiring" name="0">
+    <tool name="Pin">
+      <a name="appearance" val="classic"/>
+    </tool>
+  </lib>
+  <lib desc="#Gates" name="1"/>
+  <lib desc="#Plexers" name="2"/>
+  <lib desc="#Arithmetic" name="3"/>
+  <lib desc="#FPArithmetic" name="4"/>
+  <lib desc="#Memory" name="5"/>
+  <lib desc="#I/O" name="6"/>
+  <lib desc="#TTL" name="7"/>
+  <lib desc="#TCL" name="8"/>
+  <lib desc="#Base" name="9"/>
+  <lib desc="#BFH-Praktika" name="10"/>
+  <lib desc="#Input/Output-Extra" name="11"/>
+  <lib desc="#Soc" name="12"/>
+  <main name="main"/>
+  <options>
+    <a name="gateUndefined" val="ignore"/>
+    <a name="simlimit" val="1000"/>
+    <a name="simrand" val="0"/>
+  </options>
+  <mappings>
+    <tool map="Button2" name="Poke Tool"/>
+    <tool map="Button3" name="Menu Tool"/>
+    <tool map="Ctrl Button1" name="Menu Tool"/>
+  </mappings>
+  <toolbar>
+    <tool name="Poke Tool"/>
+    <tool name="Edit Tool"/>
+    <tool name="Wiring Tool"/>
+    <tool name="Text Tool"/>
+    <tool name="Image"/>
+    <sep/>
+    <tool name="Pin"/>
+    <tool name="Pin">
+      <a name="facing" val="west"/>
+      <a name="type" val="output"/>
+    </tool>
+    <sep/>
+    <tool name="NOT Gate"/>
+    <tool name="AND Gate"/>
+    <tool name="OR Gate"/>
+    <tool name="XOR Gate"/>
+    <tool name="NAND Gate"/>
+    <tool name="NOR Gate"/>
+    <sep/>
+    <tool name="D Flip-Flop"/>
+    <tool name="Register"/>
+  </toolbar>
+  <circuit name="main">
+    <a name="appearance" val="logisim_evolution"/>
+    <a name="circuit" val="main"/>
+    <a name="circuitnamedboxfixedsize" val="true"/>
+    <a name="simulationFrequency" val="1.0"/>
+    <comp lib="0" loc="(390,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,340)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,360)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,380)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,400)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,420)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,440)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,460)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,480)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,500)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(390,520)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+    </comp>
+    <comp lib="0" loc="(660,320)" name="Pin">
+      <a name="appearance" val="NewPins"/>
+      <a name="facing" val="west"/>
+      <a name="type" val="output"/>
+    </comp>
+    <comp loc="(630,320)" name="problem2"/>
+    <wire from="(390,320)" to="(410,320)"/>
+    <wire from="(390,340)" to="(410,340)"/>
+    <wire from="(390,360)" to="(410,360)"/>
+    <wire from="(390,380)" to="(410,380)"/>
+    <wire from="(390,400)" to="(410,400)"/>
+    <wire from="(390,420)" to="(410,420)"/>
+    <wire from="(390,440)" to="(410,440)"/>
+    <wire from="(390,460)" to="(410,460)"/>
+    <wire from="(390,480)" to="(410,480)"/>
+    <wire from="(390,500)" to="(410,500)"/>
+    <wire from="(390,520)" to="(410,520)"/>
+    <wire from="(630,320)" to="(660,320)"/>
+  </circuit>
+  <vhdl appearance="logisim_evolution" name="problem2">library ieee;&#13;
+use ieee.std_logic_1164.all;&#13;
+&#13;
+entity problem2 is&#13;
+    port (&#13;
+        d0, d1, d2, d3 : in std_logic;&#13;
+        d4, d5, d6, d7 : in std_logic;&#13;
+        s2, s1, s0     : in std_logic;&#13;
+        y              : out std_logic&#13;
+    );&#13;
+end problem2;&#13;
+&#13;
+architecture behavioral of problem2 is&#13;
+    signal sel : std_logic_vector(2 downto 0);&#13;
+begin&#13;
+    sel &lt;= s2 &amp; s1 &amp; s0;&#13;
+&#13;
+    with sel select&#13;
+        y &lt;= d0 when "000",&#13;
+             d1 when "001",&#13;
+             d2 when "010",&#13;
+             d3 when "011",&#13;
+             d4 when "100",&#13;
+             d5 when "101",&#13;
+             d6 when "110",&#13;
+             d7 when "111",&#13;
+             '0' when others;&#13;
+end behavioral;&#13;
+</vhdl>
+</project>
